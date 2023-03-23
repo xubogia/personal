@@ -1,0 +1,26 @@
+# 定义应用名称和描述
+name: my-next-app
+description: My Next.js Application
+
+# 配置 Next.js 组件
+component:
+  name: nextjs
+  type: aliyun-nodejs
+  inputs:
+    region: cn-hangzhou
+    runtime: Node.js 12
+    memorySize: 128
+    timeout: 10
+    environmentVariables:
+      NODE_ENV: production
+
+# 配置函数
+function:
+  name: nextjs-server
+  codeUri: ./
+  inputs:
+    handler: serverless.handler
+    events:
+      - http:
+          path: /
+          method: GET
